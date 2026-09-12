@@ -63,5 +63,12 @@
           ];
         };
       });
+
+      # `nix flake check` is this repo's canonical verification command — it
+      # realizes the site derivation, so a broken template, missing data file
+      # or (the trap that bit us) an uncommitted asset fails the check.
+      checks = forAllSystems (pkgs: {
+        default = self.packages.${pkgs.stdenv.hostPlatform.system}.default;
+      });
     };
 }

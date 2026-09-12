@@ -22,13 +22,20 @@
 
           src = self;
 
-          nativeBuildInputs = [ pkgs.zola ];
+          nativeBuildInputs = [
+            pkgs.zola
+            pkgs.cacert
+          ];
 
           dontConfigure = true;
 
           buildPhase = ''
             runHook preBuild
             export HOME="$TMPDIR"
+            # Zola's load_data() builds an HTTP client even for local files,
+            # and the sandbox has no system CA bundle — point it at cacert.
+            export SSL_CERT_FILE="${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt"
+            export NIX_SSL_CERT_FILE="$SSL_CERT_FILE"
             zola build
             runHook postBuild
           '';

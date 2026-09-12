@@ -1,14 +1,17 @@
 #!/usr/bin/env bash
-# Regenerate data/github.toml from a GitHub user's public repos.
+# Regenerate the GitHub-derived files: data/github.toml (the project list)
+# and static/avatar.jpg (the profile picture).
 #
-# Run this on the desktop whenever you want the "From GitHub" section to
-# refresh, then commit the result — the site must NOT hit the network at
-# Nix build time (Nix builds are sandboxed with no network access).
+# Run this on the desktop whenever you want them to refresh, then commit the
+# result — the site must NOT hit the network at Nix build time (Nix builds are
+# sandboxed with no network access).
 #
 #   ./scripts/fetch-github-projects.sh              # uses config.toml's username
 #   GITHUB_USER=someone ./scripts/fetch-github-projects.sh
 #
-# Unauthenticated GitHub API allows 60 requests/hour — a run uses 1-2.
+# Unauthenticated GitHub API allows 60 requests/hour — a run uses 1.
+# The avatar comes from github.com/<user>.png, which serves whatever you have
+# uploaded there; if that fetch fails the existing static/avatar.jpg is kept.
 set -euo pipefail
 
 here="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
@@ -55,3 +58,20 @@ curl -fsSL \
 
 n="$(grep -c '^\[\[repo\]\]' "${out}" || true)"
 echo "wrote ${out} (${n} repos)"
+
+# --- profile picture -------------------------------------------------------
+# github.com/<user>.png redirects to the uploaded avatar. Verify we actually
+# got an image (not an HTML error page) before replacing the committed file.
+avatar="${here}/static/avatar.jpg"
+got="$(mktemp)"
+if curl -fsSL -o "${got}" "https://github.com/${user}.png?size=460"; then
+  case "$(od -An -tx1 -N4 "${got}" | tr -d ' \n')" in
+    ffd8ff*|89504e47)
+      mv "${got}" "${avatar}"
+      echo "wrote ${avatar}" ;;
+    *) echo "warn: avatar response was not an image — kept existing ${avatar}" >&2 ;;
+  esac
+else
+  echo "warn: could not fetch avatar — kept existing ${avatar}" >&2
+fi
+rm -f "${got}"

@@ -43,6 +43,41 @@ body {
 
 /* ---------- hero ---------- */
 
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+.hero-text {
+  min-width: 0;
+}
+
+.avatar {
+  flex: 0 0 auto;
+  width: 132px;
+  height: 132px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--accent-dim);
+  box-shadow:
+    0 0 0 5px rgba(45, 212, 191, 0.1),
+    0 10px 30px rgba(0, 0, 0, 0.45);
+}
+
+@media (max-width: 560px) {
+  .hero {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+
+  .avatar {
+    width: 104px;
+    height: 104px;
+  }
+}
+
 .hero h1 {
   margin: 0;
   font-size: clamp(2.1rem, 5vw, 3rem);

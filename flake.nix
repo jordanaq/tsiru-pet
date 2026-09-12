@@ -29,7 +29,7 @@
           buildPhase = ''
             runHook preBuild
             export HOME="$TMPDIR"
-            zola build --root .
+            zola build
             runHook postBuild
           '';
 

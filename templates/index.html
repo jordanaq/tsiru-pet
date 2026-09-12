@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% set manual = load_data(path="data/projects.toml") %}
+{% set gh = load_data(path="data/github.toml") %}
+
+<header class="hero">
+  <h1>{{ config.title }}</h1>
+  <p class="tagline">{{ config.extra.tagline }}</p>
+  <nav class="links">
+    {% for link in config.extra.links %}
+    <a href="{{ link.url }}" rel="me">{{ link.label }}</a>
+    {% endfor %}
+  </nav>
+</header>
+
+<section class="prose bio">
+  {{ section.content | safe }}
+</section>
+
+<section class="projects">
+  <h2>Projects</h2>
+  <div class="grid">
+    {% for p in manual.project %}
+    <article class="card{% if p.placeholder %} placeholder-card{% endif %}">
+      <h3>
+        {% if p.url %}<a href="{{ p.url }}">{{ p.title }}</a>{% else %}{{ p.title }}{% endif %}
+      </h3>
+      <p>{{ p.description }}</p>
+      {% if p.tags %}
+      <ul class="tags">
+        {% for t in p.tags %}<li>{{ t }}</li>{% endfor %}
+      </ul>
+      {% endif %}
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="projects github">
+  <h2>From GitHub</h2>
+  <p class="section-note">
+    Auto-generated at build time from
+    <a href="https://github.com/{{ config.extra.github.username }}">github.com/{{ config.extra.github.username }}</a>.
+  </p>
+  <div class="grid">
+    {% for r in gh.repo %}
+      {% if r.name not in config.extra.github.hidden %}
+      <article class="card">
+        <h3><a href="{{ r.url }}">{{ r.name }}</a></h3>
+        <p>{% if r.description %}{{ r.description }}{% else %}<em>No description.</em>{% endif %}</p>
+        <ul class="tags">
+          {% if r.language %}<li class="lang" data-lang="{{ r.language }}">{{ r.language }}</li>{% endif %}
+          {% if r.stars > 0 %}<li>★ {{ r.stars }}</li>{% endif %}
+        </ul>
+      </article>
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

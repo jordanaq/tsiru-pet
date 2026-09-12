@@ -1,0 +1,18 @@
+# Hand-curated projects shown in the "Projects" section.
+# Edit freely — add/remove [[project]] blocks.
+# `placeholder = true` just draws a dashed outline so you can spot the
+# scaffolding; delete the line once you've written the real entry.
+
+[[project]]
+title = "PLACEHOLDER — Example Project"
+description = "One or two sentences on what this is, why it exists, and what's interesting about it technically."
+url = "https://github.com/jordanaq"
+tags = ["rust", "compilers"]
+placeholder = true
+
+[[project]]
+title = "PLACEHOLDER — Second Project"
+description = "Another project slot. Delete this block if you only need one."
+url = "https://example.com"
+tags = ["functional-programming", "types"]
+placeholder = true

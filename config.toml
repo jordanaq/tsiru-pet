@@ -1,0 +1,29 @@
+base_url = "https://tsiru.pet"
+title = "Tsiru Quinn"
+description = "Tsiru Quinn — developer, ethicist, and functional-programming enthusiast."
+default_language = "en"
+compile_sass = false
+build_search_index = false
+generate_feeds = false
+hard_link_static = false
+
+[extra]
+tagline = "Developer · ethicist · compilers & functional programming"
+# Public contact / profile links shown in the header.
+# Edit these freely.
+[[extra.links]]
+label = "GitHub"
+url = "https://github.com/jordanaq"
+[[extra.links]]
+label = "Email"
+url = "mailto:REPLACE-ME@example.com"
+[[extra.links]]
+label = "Links"
+url = "https://links.tsiru.pet"
+
+# The GitHub project auto-listing.
+[extra.github]
+username = "jordanaq"
+# Repos listed here are hidden from the auto-generated section
+# (e.g. forks of other people's work, throwaway experiments).
+hidden = []

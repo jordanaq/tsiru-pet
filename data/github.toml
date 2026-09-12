@@ -2,6 +2,13 @@
 # Source: https://api.github.com/users/jordanaq/repos
 
 [[repo]]
+name = "tsiru-pet"
+description = ""
+url = "https://github.com/jordanaq/tsiru-pet"
+language = "CSS"
+stars = 0
+
+[[repo]]
 name = ".dotfiles"
 description = ""
 url = "https://github.com/jordanaq/.dotfiles"

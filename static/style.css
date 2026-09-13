@@ -256,10 +256,6 @@ h2 {
 
 /* ---------- résumé page ---------- */
 
-.resume-hero {
-  align-items: flex-start;
-}
-
 .contact-line {
   margin: 1rem 0 0;
   font-size: 0.95rem;

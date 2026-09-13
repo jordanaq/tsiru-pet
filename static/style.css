@@ -256,34 +256,131 @@ h2 {
 
 /* ---------- résumé page ---------- */
 
-.resume-hero h1::after {
-  display: none;
+.resume-hero {
+  align-items: flex-start;
 }
 
-.resume h3 {
-  margin: 1.75rem 0 0.15rem;
+.resume-hero .avatar {
+  width: 108px;
+  height: 108px;
+}
+
+.contact-line {
+  margin: 1rem 0 0;
+  font-size: 0.95rem;
+  color: var(--fg-dim);
+}
+
+.contact-line a {
+  color: var(--fg-dim);
+}
+
+.contact-line a:hover {
+  color: var(--accent);
+}
+
+.print-btn {
+  font: inherit;
+  font-size: 0.9rem;
+  padding: 0.35rem 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: none;
+  color: var(--fg);
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+}
+
+.print-btn:hover {
+  border-color: var(--accent-dim);
+  color: var(--accent);
+  background: rgba(45, 212, 191, 0.06);
+}
+
+.resume-block + .resume-block {
+  margin-top: 2.75rem;
+}
+
+.entry + .entry {
+  margin-top: 1.6rem;
+}
+
+/* Role left, dates right-aligned. */
+.entry-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.25rem 1rem;
+}
+
+.entry-head h3 {
+  margin: 0;
   font-size: 1.02rem;
   line-height: 1.35;
 }
 
-/* The role/date meta line directly under an h3. */
-.resume h3 + p {
-  margin: 0 0 0.6rem;
+.entry-head .org {
+  font-weight: 400;
   color: var(--fg-dim);
+}
+
+.dates {
+  flex: 0 0 auto;
+  color: var(--fg-dim);
+  font-size: 0.88rem;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.entry .meta {
+  margin: 0.15rem 0 0.6rem;
   font-size: 0.9rem;
 }
 
-.resume ul {
+.entry .degree {
+  margin: 0 0 0.6rem;
+}
+
+.entry ul {
   margin: 0 0 0.5rem;
   padding-left: 1.15rem;
 }
 
-.resume li {
+.entry li {
   margin: 0 0 0.3rem;
 }
 
-.resume strong {
-  color: var(--fg);
+/* Skills render as pill rows, reusing the .tags pill styling. */
+.skill-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 0.7rem;
+}
+
+.skill-row > .label {
+  flex: 0 0 8.5rem;
+  color: var(--fg-dim);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.skill-row .tags {
+  margin: 0;
+}
+
+.pub + .pub {
+  margin-top: 1rem;
+}
+
+.pub p {
+  margin: 0;
+}
+
+.pub .venue {
+  color: var(--fg-dim);
 }
 
 /* Let ⌘P / Ctrl-P produce a clean, ink-light PDF. */
@@ -307,8 +404,14 @@ h2 {
   }
 
   .footer,
-  .links {
+  .links,
+  .print-btn {
     display: none;
+  }
+
+  .resume-hero .avatar {
+    width: 84px;
+    height: 84px;
   }
 
   a {
@@ -321,12 +424,13 @@ h2 {
     border-bottom-color: #ccc;
   }
 
-  .resume h3 {
-    break-after: avoid;
+  .entry,
+  .pub {
+    break-inside: avoid;
   }
 
-  .resume li {
-    break-inside: avoid;
+  .entry-head h3 {
+    break-after: avoid;
   }
 }
 

@@ -1,0 +1,82 @@
+# Hand-curated résumé content, rendered by templates/resume.html.
+# Edit freely — add/remove entries per section.
+
+[[experience]]
+role = "Robotics Systems Engineering Intern"
+org = "NASA Jet Propulsion Laboratory"
+where = "Robot Operations Group · Pasadena, California"
+dates = "May–December 2024"
+mentors = "Steven Myint and Andrei Tumbar"
+bullets = [
+  "Improved simulation fidelity in ground-operations software for the Mars 2020 Perseverance rover.",
+  "Built a flight-software-in-the-loop subsystem simulating the rover's event-driven architecture and schedulers.",
+  "Stack: C, C++, Python, Bash; RTOSs, Linux, OS schedulers; event-driven programming; time-series visualization.",
+]
+
+[[experience]]
+role = "Research Assistant"
+org = "RIT Computational Linguistics and Speech Processing Lab"
+where = "Rochester, New York"
+dates = "April 2023–April 2024"
+mentors = "Drs. Cecelia Alm and Reynold Bailey"
+bullets = [
+  "Created an application for visualizing and interpreting large, multimodal data sets across research contexts.",
+  "Applied multimodal data-analysis methods in support of affective computing and HCI research.",
+  "Resulted in a co-authored publication at ACII 2023 (see below).",
+  "Stack: Python, JavaScript, Django, Pandas, NumPy, Plotly, Bokeh.",
+]
+
+[[education]]
+school = "Rochester Institute of Technology"
+where = "Rochester, New York"
+dates = "August 2022–May 2026"
+degree = "B.S./M.S. Computer Science"
+detail = "Specialization: Programming Languages and Tools · Minor: Mathematics"
+bullets = [
+  "M.S. project: Lambda Set Specialization for MLton — integrated a specializing defunctionalization technique into MLton, a whole-program optimizing compiler for Standard ML.",
+  "Synthesized compilers, functional programming, intermediate languages, type systems, and computation theory.",
+  "Experienced operating in a production compiler ecosystem with real-world developer considerations.",
+  "Dean's List: Fall 2022, Spring 2023, Fall 2023.",
+]
+coursework = "Coursework: C, Haskell, Java, Python; OOP, procedural and functional programming; AI, ML, neuronal models, LLMs; data structures, algorithms; cryptography; project management, SCRUM; networking, distributed computing; relational databases, SQL; Linux; discrete math, graph theory, calculus, statistics."
+
+[[education]]
+school = "Pitt Community College"
+where = "Winterville, North Carolina"
+dates = "January 2021–December 2023"
+degree = "A.A.S. Information Technology: Computer Programming and Development"
+bullets = [
+  "Certificates: C# Programming, Data Reporting and Analytics, Java Programming.",
+]
+coursework = "Coursework: Java, C++, C#, Python; GUI programming, web development; networking; relational databases, SQL; Linux; program design, project management; Agile and Waterfall methodologies; Microsoft Office."
+
+[[skills]]
+label = "Languages"
+items = ["C", "C++", "Elixir", "Haskell", "JavaScript", "Python", "SML"]
+
+[[skills]]
+label = "Technologies"
+items = ["Bash", "CSS", "HTML", "Git", "Linux", "Nix", "NumPy", "PyTorch", "SciPy", "SQL", "Pandas", "REST APIs"]
+
+[[skills]]
+label = "Editors"
+items = ["JetBrains Suite", "Vim", "Visual Studio", "VS Code"]
+
+[[skills]]
+label = "Other"
+items = ["GitHub", "Google Colab", "LaTeX"]
+
+[[publication]]
+authors = "Arthur, I., Quinn, J., Titung, R., Alm, C. O., & Bailey, R. (2023)."
+title = "MDE — Multimodal Data Explorer for Flexible Visualization of Multiple Data Streams."
+venue = "Proceedings of Affective Computing + Intelligent Interaction (ACII)."
+
+[[publication]]
+authors = "Quinn, J."
+title = "MDE — Multimodal Data Explorer for Flexible Visualization of Multiple Data Streams."
+venue = "Research demonstration, ACII, September 2023."
+
+[[publication]]
+authors = "Quinn, J."
+title = "Multimodal Data Analysis Software: Overcoming Static Limitations."
+venue = "Oral presentation, RIT Undergraduate Research Symposium, August 2023."

@@ -2,22 +2,86 @@
 
 {% block title %}{{ page.title }} · {{ config.title }}{% endblock %}
 {% block description %}{{ page.description }}{% endblock %}
+{# The résumé is the professional artefact — keep the advocacy tagline off it. #}
+{% block footer %}{{ config.title }}{% endblock %}
 
 {% block content %}
+{% set r = load_data(path="data/resume.toml") %}
+
 <header class="hero resume-hero">
+  <img
+    class="avatar"
+    src="{{ get_url(path='avatar.jpg') }}"
+    alt="Portrait of {{ config.title }}"
+    width="216"
+    height="216"
+  />
   <div class="hero-text">
     <h1>{{ config.title }}</h1>
-    <p class="tagline">{{ config.extra.tagline }}</p>
+    <p class="contact-line">
+      <a href="mailto:jordanaq@tsiru.pet">jordanaq@tsiru.pet</a> ·
+      <a href="https://github.com/jordanaq" rel="me">github.com/jordanaq</a> ·
+      <a href="https://linkedin.com/in/jordanaq" rel="me">linkedin.com/in/jordanaq</a>
+    </p>
     <nav class="links">
       <a href="{{ config.base_url }}">← Home</a>
-      <a href="mailto:jordanaq@tsiru.pet">Email</a>
-      <a href="https://github.com/jordanaq" rel="me">GitHub</a>
-      <a href="https://linkedin.com/in/jordanaq" rel="me">LinkedIn</a>
+      <button type="button" class="print-btn" onclick="window.print()">Download PDF</button>
     </nav>
   </div>
 </header>
 
-<section class="prose resume">
-  {{ page.content | safe }}
+<section class="resume-block">
+  <h2>Experience</h2>
+  {% for e in r.experience %}
+  <article class="entry">
+    <div class="entry-head">
+      <h3>{{ e.role }} <span class="org">— {{ e.org }}</span></h3>
+      <span class="dates">{{ e.dates }}</span>
+    </div>
+    <p class="meta">{{ e.where }}{% if e.mentors %} · {{ e.mentors }}{% endif %}</p>
+    <ul>
+      {% for b in e.bullets %}<li>{{ b }}</li>{% endfor %}
+    </ul>
+  </article>
+  {% endfor %}
+</section>
+
+<section class="resume-block">
+  <h2>Education</h2>
+  {% for e in r.education %}
+  <article class="entry">
+    <div class="entry-head">
+      <h3>{{ e.school }}</h3>
+      <span class="dates">{{ e.dates }}</span>
+    </div>
+    <p class="meta">{{ e.where }}</p>
+    <p class="degree"><strong>{{ e.degree }}</strong>{% if e.detail %}<br />{{ e.detail }}{% endif %}</p>
+    <ul>
+      {% for b in e.bullets %}<li>{{ b }}</li>{% endfor %}
+    </ul>
+    {% if e.coursework %}<p class="meta">{{ e.coursework }}</p>{% endif %}
+  </article>
+  {% endfor %}
+</section>
+
+<section class="resume-block">
+  <h2>Skills</h2>
+  {% for s in r.skills %}
+  <div class="skill-row">
+    <span class="label">{{ s.label }}</span>
+    <ul class="tags">
+      {% for i in s.items %}<li>{{ i }}</li>{% endfor %}
+    </ul>
+  </div>
+  {% endfor %}
+</section>
+
+<section class="resume-block">
+  <h2>Publications &amp; Conferences</h2>
+  {% for p in r.publication %}
+  <div class="pub">
+    <p>{{ p.authors }} <strong>{{ p.title }}</strong> <span class="venue">{{ p.venue }}</span></p>
+  </div>
+  {% endfor %}
 </section>
 {% endblock %}

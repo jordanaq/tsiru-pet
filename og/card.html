@@ -1,0 +1,91 @@
+<!doctype html>
+<!--
+  Source for the Open Graph card at static/og.png (1200x630).
+  This file is NOT served: Zola only builds content/ and copies static/.
+  Re-render after any change here or to the avatar:
+      ./scripts/make-og-card.sh
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html,
+      body {
+        width: 1200px;
+        height: 630px;
+      }
+
+      body {
+        display: flex;
+        align-items: center;
+        gap: 56px;
+        padding: 0 84px;
+        background:
+          radial-gradient(950px 430px at 12% -14%, #12353a 0%, transparent 62%),
+          #0b1416;
+        color: #dfe9ea;
+        font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+          Roboto, "Helvetica Neue", Arial, sans-serif;
+      }
+
+      .avatar {
+        flex: 0 0 auto;
+        width: 232px;
+        height: 232px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid #14b8a6;
+        box-shadow:
+          0 0 0 10px rgba(45, 212, 191, 0.1),
+          0 18px 48px rgba(0, 0, 0, 0.5);
+      }
+
+      h1 {
+        font-size: 82px;
+        letter-spacing: -0.025em;
+        line-height: 1.02;
+      }
+
+      .rule {
+        width: 132px;
+        height: 8px;
+        margin-top: 26px;
+        border-radius: 4px;
+        background: linear-gradient(90deg, #2dd4bf, transparent);
+      }
+
+      .tagline {
+        max-width: 720px;
+        margin-top: 28px;
+        font-size: 32px;
+        line-height: 1.4;
+        color: #93a7a9;
+      }
+
+      .domain {
+        margin-top: 32px;
+        font-size: 26px;
+        letter-spacing: 0.02em;
+        color: #2dd4bf;
+      }
+    </style>
+  </head>
+  <body>
+    <img class="avatar" src="../static/avatar.jpg" alt="" />
+    <div>
+      <h1>Jordan Quinn</h1>
+      <div class="rule"></div>
+      <p class="tagline">
+        Software Engineer &middot; Programming Languages &middot; Animal Rights
+        Advocate
+      </p>
+      <p class="domain">tsiru.pet</p>
+    </div>
+  </body>
+</html>

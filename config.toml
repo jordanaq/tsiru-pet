@@ -19,7 +19,7 @@ label = "Email"
 url = "mailto:tsiru@tsiru.cat"
 [[extra.links]]
 label = "Links"
-url = "https://links.tsiru.cat/@jordanaq"
+url = "https://links.tsiru.pet/@jordanaq"
 
 # The GitHub project auto-listing.
 [extra.github]

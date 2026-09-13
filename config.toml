@@ -1,6 +1,6 @@
 base_url = "https://tsiru.pet"
 title = "Jordan Quinn"
-description = "Jordan Quinn — developer, ethicist, and functional-programming enthusiast."
+description = "Jordan Quinn — software engineer working on compilers and programming languages; animal rights advocate."
 default_language = "en"
 compile_sass = false
 build_search_index = false
@@ -8,7 +8,7 @@ generate_feeds = false
 hard_link_static = false
 
 [extra]
-tagline = "Developer · ethicist · compilers & functional programming"
+tagline = "Software Engineer · Programming Languages · Animal Rights Advocate"
 # Public contact / profile links shown in the header.
 # Edit these freely.
 [[extra.links]]

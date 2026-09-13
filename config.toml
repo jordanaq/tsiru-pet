@@ -15,6 +15,9 @@ tagline = "Developer · ethicist · compilers & functional programming"
 label = "GitHub"
 url = "https://github.com/jordanaq"
 [[extra.links]]
+label = "LinkedIn"
+url = "https://linkedin.com/in/jordanaq"
+[[extra.links]]
 label = "Email"
 url = "mailto:jordanaq@tsiru.pet"
 [[extra.links]]

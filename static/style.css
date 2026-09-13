@@ -254,6 +254,82 @@ h2 {
   color: var(--fg-dim);
 }
 
+/* ---------- résumé page ---------- */
+
+.resume-hero h1::after {
+  display: none;
+}
+
+.resume h3 {
+  margin: 1.75rem 0 0.15rem;
+  font-size: 1.02rem;
+  line-height: 1.35;
+}
+
+/* The role/date meta line directly under an h3. */
+.resume h3 + p {
+  margin: 0 0 0.6rem;
+  color: var(--fg-dim);
+  font-size: 0.9rem;
+}
+
+.resume ul {
+  margin: 0 0 0.5rem;
+  padding-left: 1.15rem;
+}
+
+.resume li {
+  margin: 0 0 0.3rem;
+}
+
+.resume strong {
+  color: var(--fg);
+}
+
+/* Let ⌘P / Ctrl-P produce a clean, ink-light PDF. */
+@media print {
+  :root {
+    --bg: #fff;
+    --fg: #000;
+    --fg-dim: #444;
+    --border: #ccc;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+    font-size: 11pt;
+  }
+
+  .page {
+    max-width: none;
+    padding: 0;
+  }
+
+  .footer,
+  .links {
+    display: none;
+  }
+
+  a {
+    color: #000;
+    text-decoration: none;
+  }
+
+  h2 {
+    color: #000;
+    border-bottom-color: #ccc;
+  }
+
+  .resume h3 {
+    break-after: avoid;
+  }
+
+  .resume li {
+    break-inside: avoid;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   * {
     transition: none !important;

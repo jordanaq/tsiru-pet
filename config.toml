@@ -12,6 +12,9 @@ tagline = "Developer · ethicist · compilers & functional programming"
 # Public contact / profile links shown in the header.
 # Edit these freely.
 [[extra.links]]
+label = "Résumé"
+url = "/resume/"
+[[extra.links]]
 label = "GitHub"
 url = "https://github.com/jordanaq"
 [[extra.links]]

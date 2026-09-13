@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }} · {{ config.title }}{% endblock %}
+{% block description %}{{ page.description }}{% endblock %}
+
+{% block content %}
+<header class="hero resume-hero">
+  <div class="hero-text">
+    <h1>{{ config.title }}</h1>
+    <p class="tagline">{{ config.extra.tagline }}</p>
+    <nav class="links">
+      <a href="{{ config.base_url }}">← Home</a>
+      <a href="mailto:jordanaq@tsiru.pet">Email</a>
+      <a href="https://github.com/jordanaq" rel="me">GitHub</a>
+      <a href="https://linkedin.com/in/jordanaq" rel="me">LinkedIn</a>
+    </nav>
+  </div>
+</header>
+
+<section class="prose resume">
+  {{ page.content | safe }}
+</section>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{# The archetype for any page carrying the standard header.
+   EXTEND THIS — do not copy the header into a page.
+
+     {% extends "page.html" %}
+     {% block title %}…{% endblock %}
+     {% block subtitle %}one line of inline content{% endblock %}
+     {% block actions %}<a href="/">Home</a>{% endblock %}
+     {% block body %}…sections…{% endblock %}
+
+   The hero markup exists once, here. Pages supply its two slots and their
+   body; they never write header markup, and never write styling. #}
+{% block content %}
+<header class="hero">
+  <img
+    class="avatar"
+    src="{{ get_url(path='avatar.jpg') }}"
+    alt="Portrait of {{ config.title }}"
+    width="460"
+    height="460"
+  />
+  <div class="hero-text">
+    <h1>{{ config.title }}</h1>
+    <div class="hero-subtitle">{% block subtitle %}{% endblock %}</div>
+    <nav class="links">{% block actions %}{% endblock %}</nav>
+  </div>
+</header>
+{% block body %}{% endblock %}
+{% endblock %}

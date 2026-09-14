@@ -1,0 +1,21 @@
+{# One card. Callers set the card_* variables; everything but the title is
+   optional. The Projects and GitHub grids both render through this, so they
+   cannot drift apart. #}
+{% set title = card_title | default(value="") %}
+{% set url = card_url | default(value="") %}
+{% set description = card_description | default(value="") %}
+{% set tags = card_tags | default(value=[]) %}
+{% set lang = card_lang | default(value="") %}
+{% set stars = card_stars | default(value=0) %}
+{% set placeholder = card_placeholder | default(value=false) %}
+<article class="card{% if placeholder %} placeholder-card{% endif %}">
+  <h3>{% if url %}<a href="{{ url }}">{{ title }}</a>{% else %}{{ title }}{% endif %}</h3>
+  <p>{% if description %}{{ description }}{% else %}<em>No description.</em>{% endif %}</p>
+  {% if lang or tags or stars > 0 %}
+  <ul class="tags">
+    {% if lang %}<li class="lang" data-lang="{{ lang }}">{{ lang }}</li>{% endif %}
+    {% for t in tags %}<li>{{ t }}</li>{% endfor %}
+    {% if stars > 0 %}<li>★ {{ stars }}</li>{% endif %}
+  </ul>
+  {% endif %}
+</article>

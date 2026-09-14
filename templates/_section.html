@@ -1,0 +1,11 @@
+{# A titled section. Callers set section_title, plus the optional
+   section_class, section_note and section_body (pre-rendered markup). #}
+{% set title = section_title | default(value="") %}
+{% set cls = section_class | default(value="") %}
+{% set note = section_note | default(value="") %}
+{% set body = section_body | default(value="") %}
+<section{% if cls %} class="{{ cls }}"{% endif %}>
+  <h2>{{ title }}</h2>
+  {% if note %}<p class="section-note">{{ note | safe }}</p>{% endif %}
+  {{ body | safe }}
+</section>

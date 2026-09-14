@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "page.html" %}
 
 {% block title %}{{ page.title }} · {{ config.title }}{% endblock %}
 {% block description %}{{ page.description }}{% endblock %}
@@ -7,14 +7,14 @@
 {# The résumé is the professional artefact — keep the advocacy tagline off it. #}
 {% block footer %}{{ config.title }}{% endblock %}
 
-{% block content %}
-{% set r = load_data(path="data/resume.toml") %}
+{% block subtitle %}<a href="mailto:jordanaq@tsiru.pet">jordanaq@tsiru.pet</a> ·
+  <a href="https://github.com/jordanaq" rel="me">github.com/jordanaq</a> ·
+  <a href="https://linkedin.com/in/jordanaq" rel="me">linkedin.com/in/jordanaq</a>{% endblock %}
 
-{% set hero_subtitle %}<a href="mailto:jordanaq@tsiru.pet">jordanaq@tsiru.pet</a> ·
-      <a href="https://github.com/jordanaq" rel="me">github.com/jordanaq</a> ·
-      <a href="https://linkedin.com/in/jordanaq" rel="me">linkedin.com/in/jordanaq</a>{% endset %}
-{% set hero_actions %}<a href="{{ config.base_url }}">← Home</a><button type="button" class="print-btn" onclick="window.print()">Download PDF</button>{% endset %}
-{% include "_hero.html" %}
+{% block actions %}<a href="{{ config.base_url }}">← Home</a><button type="button" class="print-btn" onclick="window.print()">Download PDF</button>{% endblock %}
+
+{% block body %}
+{% set r = load_data(path="data/resume.toml") %}
 
 <section class="resume-block">
   <h2>Experience</h2>

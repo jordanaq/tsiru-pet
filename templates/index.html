@@ -1,55 +1,54 @@
-{% extends "base.html" %}
+{% extends "page.html" %}
 
-{% block content %}
+{% block subtitle %}{{ config.extra.tagline }}{% endblock %}
+
+{% block actions %}{% for link in config.extra.links %}<a href="{{ link.url }}" rel="me">{{ link.label }}</a>{% endfor %}{% endblock %}
+
+{% block body %}
 {% set manual = load_data(path="data/projects.toml") %}
 {% set gh = load_data(path="data/github.toml") %}
-
-{% set hero_subtitle %}{{ config.extra.tagline }}{% endset %}
-{% set hero_actions %}{% for link in config.extra.links %}<a href="{{ link.url }}" rel="me">{{ link.label }}</a>{% endfor %}{% endset %}
-{% include "_hero.html" %}
 
 <section class="prose bio">
   {{ section.content | safe }}
 </section>
 
-<section class="projects">
-  <h2>Projects</h2>
-  <div class="grid">
-    {% for p in manual.project %}
-    <article class="card{% if p.placeholder %} placeholder-card{% endif %}">
-      <h3>
-        {% if p.url %}<a href="{{ p.url }}">{{ p.title }}</a>{% else %}{{ p.title }}{% endif %}
-      </h3>
-      <p>{{ p.description }}</p>
-      {% if p.tags %}
-      <ul class="tags">
-        {% for t in p.tags %}<li>{{ t }}</li>{% endfor %}
-      </ul>
-      {% endif %}
-    </article>
-    {% endfor %}
-  </div>
-</section>
+{% set section_title = "Projects" %}
+{% set section_class = "projects" %}
+{% set section_note = "" %}
+{% set section_body %}
+<div class="grid">
+  {% for p in manual.project %}
+  {% set card_title = p.title %}
+  {% set card_url = p.url | default(value="") %}
+  {% set card_description = p.description | default(value="") %}
+  {% set card_tags = p.tags | default(value=[]) %}
+  {% set card_lang = "" %}
+  {% set card_stars = 0 %}
+  {% set card_placeholder = p.placeholder | default(value=false) %}
+  {% include "_card.html" %}
+  {% endfor %}
+</div>
+{% endset %}
+{% include "_section.html" %}
 
-<section class="projects github">
-  <h2>From GitHub</h2>
-  <p class="section-note">
-    Auto-generated at build time from
-    <a href="https://github.com/{{ config.extra.github.username }}">github.com/{{ config.extra.github.username }}</a>.
-  </p>
-  <div class="grid">
-    {% for r in gh.repo %}
-      {% if r.name not in config.extra.github.hidden %}
-      <article class="card">
-        <h3><a href="{{ r.url }}">{{ r.name }}</a></h3>
-        <p>{% if r.description %}{{ r.description }}{% else %}<em>No description.</em>{% endif %}</p>
-        <ul class="tags">
-          {% if r.language %}<li class="lang" data-lang="{{ r.language }}">{{ r.language }}</li>{% endif %}
-          {% if r.stars > 0 %}<li>★ {{ r.stars }}</li>{% endif %}
-        </ul>
-      </article>
-      {% endif %}
-    {% endfor %}
-  </div>
-</section>
+{% set section_title = "From GitHub" %}
+{% set section_class = "projects github" %}
+{% set section_note = 'Auto-generated at build time from <a href="https://github.com/' ~ config.extra.github.username ~ '">github.com/' ~ config.extra.github.username ~ '</a>.' %}
+{% set section_body %}
+<div class="grid">
+  {% for r in gh.repo %}
+  {% if r.name not in config.extra.github.hidden %}
+  {% set card_title = r.name %}
+  {% set card_url = r.url %}
+  {% set card_description = r.description | default(value="") %}
+  {% set card_tags = [] %}
+  {% set card_lang = r.language | default(value="") %}
+  {% set card_stars = r.stars | default(value=0) %}
+  {% set card_placeholder = false %}
+  {% include "_card.html" %}
+  {% endif %}
+  {% endfor %}
+</div>
+{% endset %}
+{% include "_section.html" %}
 {% endblock %}

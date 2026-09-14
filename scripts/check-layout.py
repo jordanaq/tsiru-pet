@@ -27,7 +27,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 PUBLIC = ROOT / "public"
-PAGES = ["/", "/resume/"]
+PAGES = ["/", "/resume/", "/now/"]
 WRAPPER = "_layout-check.html"
 VIEWPORT = "900,700"
 
@@ -105,15 +105,22 @@ def main() -> int:
         if a is None:
             print(f"FAIL  {page} has no .avatar — does it extend page.html?")
             return 1
-        print(f"PASS  {page:10} avatar x={a['x']:.1f} y={a['y']:.1f} "
-              f"w={a['width']:.1f} h={a['height']:.1f} (viewport {data['viewport']})")
+        # The centred column sits within the *usable* width, which excludes the
+        # scrollbar. A short page (no scrollbar) and a long one differ in the
+        # raw x, so compare the avatar's offset from the viewport centre — that
+        # is invariant to whether a scrollbar is present.
+        data["key"] = dict(a, x=round(a["x"] - data["viewport"] / 2, 2))
+        k = data["key"]
+        print(f"PASS  {page:10} avatar x={a['x']:6.1f} y={a['y']:5.1f} "
+              f"w={a['width']:3.0f} h={a['height']:3.0f} "
+              f"(x_rel={k['x']:+6.2f}, viewport {data['viewport']})")
 
-    reference = results[PAGES[0]]
-    drift = {p: d for p, d in results.items() if d != reference}
+    reference = results[PAGES[0]]["key"]
+    drift = {p: d["key"] for p, d in results.items() if d["key"] != reference}
     if drift:
         print("\nFAIL  header geometry differs between pages:")
         for page, d in drift.items():
-            print(f"      {page}: {d['avatar']} vs {reference['avatar']}")
+            print(f"      {page}: {d} vs {reference}")
         return 1
 
     print("\nlayout: identical on all pages")

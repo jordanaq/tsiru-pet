@@ -22,9 +22,11 @@
   />
   <div class="hero-text">
     <h1>{{ config.title }}</h1>
-    <div class="hero-subtitle">{% block subtitle %}{% endblock %}</div>
-    <nav class="links">{% block actions %}{% endblock %}</nav>
+    <div class="hero-subtitle">{% block subtitle %}{{ config.extra.tagline }}{% endblock %}</div>
+    <nav class="links">{% block actions %}{% for link in config.extra.links %}<a href="{{ link.url }}" rel="me">{{ link.label }}</a>{% endfor %}{% endblock %}</nav>
   </div>
 </header>
-{% block body %}{% endblock %}
+{# Content pages (e.g. content/now.md, `template = "page.html"`) render their
+   markdown here by default; custom pages override the body block. #}
+{% block body %}{{ page.content | safe }}{% endblock %}
 {% endblock %}

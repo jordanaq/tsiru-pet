@@ -56,6 +56,9 @@
 
 html {
   -webkit-text-size-adjust: 100%;
+  /* Reserve the scrollbar gutter so the centred column never shifts between
+     short and long pages — otherwise /now/ sits ~7px right of / and /resume/. */
+  overflow-y: scroll;
 }
 
 body {

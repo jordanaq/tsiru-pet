@@ -49,10 +49,11 @@ So:
   page (below the bio). `links` is the hero's identity/contact pills (GitHub,
   LinkedIn, Email, Links). A `mailto:` or an external profile in `nav`, or an
   internal page in `links`, is the tell that they were mixed up.
-- **There is no nav bar and no footer, deliberately.** Two links do not justify
-  a bar, and a bare link row above the hero competes with it. Instead: the home
-  page carries an index *after* the bio (a table of contents after the
-  preface), and the header's avatar and name link home from every other page.
+- **There is no nav bar and no footer links, deliberately.** Two links do not
+  justify a bar, and a bare link row above the hero competes with it. Instead:
+  the home page carries an index *after* the bio (a table of contents after the
+  preface), the header's avatar and name link home from every other page, and
+  the footer is a byline only.
 - **The avatar and the page name link to `/`.** They are the navigation back.
   Both live in `page.html`, so every page gets them.
 - **Interactive pills are anchors, not `<button>`s.** Chrome ignores

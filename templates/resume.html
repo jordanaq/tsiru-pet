@@ -4,6 +4,8 @@
 {% block description %}{{ page.description }}{% endblock %}
 {% block og_title %}{{ page.title }} · {{ config.title }}{% endblock %}
 {% block og_description %}{{ page.description }}{% endblock %}
+{# The résumé is the professional artefact — keep the advocacy tagline off it. #}
+{% block footer %}{{ config.title }}{% endblock %}
 
 {% block subtitle %}<a href="mailto:jordanaq@tsiru.pet">jordanaq@tsiru.pet</a> ·
   <a href="https://github.com/jordanaq" rel="me">github.com/jordanaq</a> ·

@@ -168,6 +168,18 @@ body {
   font-size: var(--text-base);
 }
 
+/* ---------- footer ---------- */
+
+/* Just the byline — the page links live in the home page's index, and the
+   header's avatar/name carry navigation back. */
+.footer {
+  border-top: 1px solid var(--border);
+  padding: var(--space-5);
+  text-align: center;
+  font-size: var(--text-sm);
+  color: var(--fg-dim);
+}
+
 /* ---------- hero ---------- */
 
 .hero {
@@ -508,6 +520,7 @@ h2 {
     padding: 0;
   }
 
+  .footer,
   .links {
     display: none;
   }

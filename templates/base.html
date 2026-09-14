@@ -32,5 +32,8 @@
     <main class="page">
       {% block content %}{% endblock %}
     </main>
+    <footer class="footer">
+      <span>{% block footer %}{{ config.title }} · {{ config.extra.tagline }}{% endblock %}</span>
+    </footer>
   </body>
 </html>

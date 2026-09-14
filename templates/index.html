@@ -4,24 +4,9 @@
 {% set manual = load_data(path="data/projects.toml") %}
 {% set gh = load_data(path="data/github.toml") %}
 
-<header class="hero">
-  <img
-    class="avatar"
-    src="{{ get_url(path='avatar.jpg') }}"
-    alt="Portrait of {{ config.title }}"
-    width="460"
-    height="460"
-  />
-  <div class="hero-text">
-    <h1>{{ config.title }}</h1>
-    <p class="tagline">{{ config.extra.tagline }}</p>
-    <nav class="links">
-      {% for link in config.extra.links %}
-      <a href="{{ link.url }}" rel="me">{{ link.label }}</a>
-      {% endfor %}
-    </nav>
-  </div>
-</header>
+{% set hero_subtitle %}<p class="tagline">{{ config.extra.tagline }}</p>{% endset %}
+{% set hero_actions %}{% for link in config.extra.links %}<a href="{{ link.url }}" rel="me">{{ link.label }}</a>{% endfor %}{% endset %}
+{% include "_hero.html" %}
 
 <section class="prose bio">
   {{ section.content | safe }}

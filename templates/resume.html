@@ -10,27 +10,13 @@
 {% block content %}
 {% set r = load_data(path="data/resume.toml") %}
 
-<header class="hero resume-hero">
-  <img
-    class="avatar"
-    src="{{ get_url(path='avatar.jpg') }}"
-    alt="Portrait of {{ config.title }}"
-    width="216"
-    height="216"
-  />
-  <div class="hero-text">
-    <h1>{{ config.title }}</h1>
-    <p class="contact-line">
+{% set hero_subtitle %}<p class="contact-line">
       <a href="mailto:jordanaq@tsiru.pet">jordanaq@tsiru.pet</a> ·
       <a href="https://github.com/jordanaq" rel="me">github.com/jordanaq</a> ·
       <a href="https://linkedin.com/in/jordanaq" rel="me">linkedin.com/in/jordanaq</a>
-    </p>
-    <nav class="links">
-      <a href="{{ config.base_url }}">← Home</a>
-      <button type="button" class="print-btn" onclick="window.print()">Download PDF</button>
-    </nav>
-  </div>
-</header>
+    </p>{% endset %}
+{% set hero_actions %}<a href="{{ config.base_url }}">← Home</a><button type="button" class="print-btn" onclick="window.print()">Download PDF</button>{% endset %}
+{% include "_hero.html" %}
 
 <section class="resume-block">
   <h2>Experience</h2>

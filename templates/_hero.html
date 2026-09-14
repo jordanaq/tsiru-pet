@@ -1,0 +1,19 @@
+{# The one hero, shared by every page so the header cannot drift between them.
+   Callers set `hero_subtitle` (tagline or contact line) and `hero_actions`
+   (the link/button row) as block-set strings, then `{% include "_hero.html" %}`. #}
+<header class="hero">
+  <img
+    class="avatar"
+    src="{{ get_url(path='avatar.jpg') }}"
+    alt="Portrait of {{ config.title }}"
+    width="460"
+    height="460"
+  />
+  <div class="hero-text">
+    <h1>{{ config.title }}</h1>
+    {{ hero_subtitle | default(value="") | safe }}
+    <nav class="links">
+      {{ hero_actions | default(value="") | safe }}
+    </nav>
+  </div>
+</header>

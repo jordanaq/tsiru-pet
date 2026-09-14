@@ -31,6 +31,17 @@ absent "avatar markup lives only in templates/page.html" 'class="avatar"' "${tem
 absent "templates carry no <style> blocks" '<style' "/nonexistent"
 absent "templates carry no inline style attributes" 'style="' "/nonexistent"
 
+# get_url builds an absolute URL from base_url. Fine for og:image (scrapers need
+# absolute), wrong for same-site assets: a local preview would then load the
+# LIVE stylesheet and point /resume.pdf at production.
+if grep -rn 'get_url(' "${templates}" | grep -qv "og\.png"; then
+  note FAIL "get_url is not used for same-site assets (root-relative instead)"
+  grep -rn 'get_url(' "${templates}" | grep -v "og\.png"
+  fail=1
+else
+  note PASS "get_url is not used for same-site assets (root-relative instead)"
+fi
+
 # Type sizes must reference the token scale. Strip the :root block first, since
 # that is the one place a literal belongs.
 if awk '/^:root \{/{s=1} !s{print} /^\}/{if(s)s=0}' "${css}" \

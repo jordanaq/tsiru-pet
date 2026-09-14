@@ -14,7 +14,7 @@
 {# Serves the real one-page PDF (static/resume.pdf) rather than generating one
    from this page. Kept in step with data/resume.toml by hand — if you edit the
    résumé content, re-export the PDF too. #}
-{% block actions %}<a href="{{ get_url(path='resume.pdf') }}" download>Download PDF</a>{% endblock %}
+{% block actions %}<a href="/resume.pdf" download>Download PDF</a>{% endblock %}
 
 {% block body %}
 {% set r = load_data(path="data/resume.toml") %}

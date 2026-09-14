@@ -32,13 +32,5 @@
     <main class="page">
       {% block content %}{% endblock %}
     </main>
-    <footer class="footer">
-      <span>{% block footer %}{{ config.title }} · {{ config.extra.tagline }}{% endblock %}</span>
-      {# Fallback navigation on every page. It never competes with the hero,
-         and it stays off the résumé's printed output (.footer is hidden). #}
-      <nav class="footer-nav">
-        {% for item in config.extra.nav %}<a href="{{ item.url }}">{{ item.label }}</a>{% endfor %}
-      </nav>
-    </footer>
   </body>
 </html>

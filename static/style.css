@@ -86,12 +86,11 @@ body {
 
 /* ---------- pills ---------- */
 
-/* The site's interactive idiom: hero pills, the résumé's print trigger and the
-   footer links all share one treatment, so they cannot drift apart. Anchors,
-   not <button>s — Chrome ignores line-height on form controls, which renders a
+/* The site's interactive idiom: every hero pill — including the résumé's print
+   trigger — shares one treatment, so they cannot drift apart. Anchors, not
+   <button>s — Chrome ignores line-height on form controls, which renders a
    button shorter than a pill and shifts the hero's centred avatar. */
-.links a,
-.footer-nav a {
+.links a {
   padding: var(--pill-pad);
   border: 1px solid var(--border);
   border-radius: var(--pill);
@@ -104,8 +103,7 @@ body {
     background var(--ease);
 }
 
-.links a:hover,
-.footer-nav a:hover {
+.links a:hover {
   border-color: var(--accent-dim);
   color: var(--accent);
   background: var(--tint);
@@ -165,39 +163,9 @@ body {
   text-decoration: underline;
 }
 
-.index-list .label::after {
-  content: " →";
-  color: var(--fg-dim);
-}
-
 .index-list .desc {
   color: var(--fg-dim);
   font-size: var(--text-base);
-}
-
-/* ---------- footer ---------- */
-
-.footer {
-  border-top: 1px solid var(--border);
-  padding: var(--space-5);
-  text-align: center;
-  font-size: var(--text-sm);
-  color: var(--fg-dim);
-}
-
-.footer-nav {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: var(--space-2) var(--space-3);
-  margin-top: var(--space-4);
-}
-
-/* Smaller and dimmer than the hero pills; the shared pill treatment above
-   supplies the border, hover and background. */
-.footer-nav a {
-  font-size: var(--text-sm);
-  color: var(--fg-dim);
 }
 
 /* ---------- hero ---------- */
@@ -222,6 +190,35 @@ body {
   box-shadow:
     0 0 0 5px var(--ring),
     0 10px 30px rgba(0, 0, 0, 0.45);
+}
+
+/* The portrait and the name both link home — the site's navigation back, now
+   that there is no nav bar or footer. line-height:0 keeps the inline image
+   from adding descender space inside the link box. */
+.avatar-link {
+  flex: 0 0 auto;
+  display: block;
+  line-height: 0;
+  border-radius: 50%;
+}
+
+.avatar-link:hover .avatar {
+  border-color: var(--accent);
+}
+
+.avatar-link:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 5px;
+}
+
+.hero h1 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.hero h1 a:hover,
+.hero h1 a:focus-visible {
+  color: var(--accent);
 }
 
 @media (max-width: 560px) {
@@ -511,7 +508,6 @@ h2 {
     padding: 0;
   }
 
-  .footer,
   .links {
     display: none;
   }

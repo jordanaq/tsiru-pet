@@ -45,15 +45,16 @@ So:
 - **Listy content is data, not markup.** Add a `data/*.toml` file and render it
   through `_card.html` / `_section.html` rather than hand-writing elements.
 - **Site pages go in `extra.nav`; everything else in `extra.links`.** `nav` is
-  one source of truth for internal pages and drives two things: the index list
-  on the home page (below the bio) and the footer links on every page. `links`
-  is the hero's identity/contact pills (GitHub, LinkedIn, Email, Links). A
-  `mailto:` or an external profile in `nav`, or an internal page in `links`, is
-  the tell that they were mixed up.
-- **There is no top nav bar, deliberately.** Two links do not justify one, and
-  a bare link row above the hero competes with it and reads as chrome. The home
+  one source of truth for internal pages and feeds the index list on the home
+  page (below the bio). `links` is the hero's identity/contact pills (GitHub,
+  LinkedIn, Email, Links). A `mailto:` or an external profile in `nav`, or an
+  internal page in `links`, is the tell that they were mixed up.
+- **There is no nav bar and no footer, deliberately.** Two links do not justify
+  a bar, and a bare link row above the hero competes with it. Instead: the home
   page carries an index *after* the bio (a table of contents after the
-  preface); the footer carries the fallback.
+  preface), and the header's avatar and name link home from every other page.
+- **The avatar and the page name link to `/`.** They are the navigation back.
+  Both live in `page.html`, so every page gets them.
 - **Interactive pills are anchors, not `<button>`s.** Chrome ignores
   `line-height` on form controls, so a button renders a couple of pixels
   shorter than an anchor pill and shifts the hero's centred avatar.

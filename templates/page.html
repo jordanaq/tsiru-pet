@@ -12,16 +12,20 @@
    The hero markup exists once, here. Pages supply its two slots and their
    body; they never write header markup, and never write styling. #}
 {% block content %}
+{# The avatar and the name both link home — this is the site's navigation back,
+   with the home page's index covering the rest. #}
 <header class="hero">
-  <img
-    class="avatar"
-    src="/avatar.jpg"
-    alt="Portrait of {{ config.title }}"
-    width="460"
-    height="460"
-  />
+  <a class="avatar-link" href="/" aria-label="Home">
+    <img
+      class="avatar"
+      src="/avatar.jpg"
+      alt=""
+      width="460"
+      height="460"
+    />
+  </a>
   <div class="hero-text">
-    <h1>{{ config.title }}</h1>
+    <h1><a href="/">{{ config.title }}</a></h1>
     <div class="hero-subtitle">{% block subtitle %}{{ config.extra.tagline }}{% endblock %}</div>
     <nav class="links">{% block actions %}{% if config.extra.cta | default(value=false) %}<a class="cta" href="{{ config.extra.cta.url }}">{{ config.extra.cta.label }}</a>{% endif %}{% for link in config.extra.links %}<a href="{{ link.url }}" rel="me">{{ link.label }}</a>{% endfor %}{% endblock %}</nav>
   </div>

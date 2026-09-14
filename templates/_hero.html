@@ -1,6 +1,15 @@
 {# The one hero, shared by every page so the header cannot drift between them.
-   Callers set `hero_subtitle` (tagline or contact line) and `hero_actions`
-   (the link/button row) as block-set strings, then `{% include "_hero.html" %}`. #}
+
+   Callers set two block-set strings and include this file:
+
+     {% set hero_subtitle %}…INLINE content only…{% endset %}
+     {% set hero_actions %}<a href="…">…</a>{% endset %}
+     {% include "_hero.html" %}
+
+   `hero_subtitle` must be inline markup (plain text and/or <a>), NOT a <p> —
+   its typography and margins belong to .hero-subtitle in style.css. That is
+   what keeps the avatar on the same pixel across pages: the text block above
+   it is always the same height, whatever the subtitle says. #}
 <header class="hero">
   <img
     class="avatar"
@@ -11,7 +20,7 @@
   />
   <div class="hero-text">
     <h1>{{ config.title }}</h1>
-    {{ hero_subtitle | default(value="") | safe }}
+    <div class="hero-subtitle">{{ hero_subtitle | default(value="") | safe }}</div>
     <nav class="links">
       {{ hero_actions | default(value="") | safe }}
     </nav>

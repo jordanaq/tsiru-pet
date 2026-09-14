@@ -4,7 +4,7 @@
 {% set manual = load_data(path="data/projects.toml") %}
 {% set gh = load_data(path="data/github.toml") %}
 
-{% set hero_subtitle %}<p class="tagline">{{ config.extra.tagline }}</p>{% endset %}
+{% set hero_subtitle %}{{ config.extra.tagline }}{% endset %}
 {% set hero_actions %}{% for link in config.extra.links %}<a href="{{ link.url }}" rel="me">{{ link.label }}</a>{% endfor %}{% endset %}
 {% include "_hero.html" %}
 

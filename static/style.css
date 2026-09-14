@@ -95,10 +95,22 @@ body {
   background: linear-gradient(90deg, var(--accent), transparent);
 }
 
-.tagline {
+/* The subtitle slot rendered by templates/_hero.html. Its metrics live here,
+   in the shared stylesheet, so every page's hero text block is the same
+   height and the avatar always lands on the same pixel. Pages pass content,
+   never styling. */
+.hero-subtitle {
   margin: 1rem 0 0;
   color: var(--fg-dim);
   font-size: 1.05rem;
+}
+
+.hero-subtitle a {
+  color: var(--fg-dim);
+}
+
+.hero-subtitle a:hover {
+  color: var(--accent);
 }
 
 .links {
@@ -255,20 +267,6 @@ h2 {
 }
 
 /* ---------- résumé page ---------- */
-
-.contact-line {
-  margin: 1rem 0 0;
-  font-size: 0.95rem;
-  color: var(--fg-dim);
-}
-
-.contact-line a {
-  color: var(--fg-dim);
-}
-
-.contact-line a:hover {
-  color: var(--accent);
-}
 
 .print-btn {
   font: inherit;

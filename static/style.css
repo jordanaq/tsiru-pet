@@ -84,6 +84,29 @@ body {
   padding: var(--space-8) var(--space-5) var(--space-7);
 }
 
+/* ---------- nav ---------- */
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+  font-size: var(--text-base);
+}
+
+.nav a {
+  color: var(--fg-dim);
+  text-decoration: none;
+}
+
+.nav a:hover {
+  color: var(--accent);
+}
+
+.nav a[aria-current="page"] {
+  color: var(--fg);
+}
+
 /* ---------- hero ---------- */
 
 .hero {
@@ -163,8 +186,10 @@ body {
   margin-top: var(--space-5);
 }
 
-.links a,
-.print-btn {
+/* Every pill in the hero — including the résumé's print trigger — is an
+   anchor, so they share this one rule and measure identically. (A <button>
+   would be shorter: Chrome ignores line-height on form controls.) */
+.links a {
   padding: var(--pill-pad);
   border: 1px solid var(--border);
   border-radius: var(--pill);
@@ -177,14 +202,7 @@ body {
     background var(--ease);
 }
 
-.print-btn {
-  font-family: inherit;
-  background: none;
-  cursor: pointer;
-}
-
-.links a:hover,
-.print-btn:hover {
+.links a:hover {
   border-color: var(--accent-dim);
   color: var(--accent);
   background: var(--tint);
@@ -433,8 +451,8 @@ h2 {
   }
 
   .footer,
-  .links,
-  .print-btn {
+  .nav,
+  .links {
     display: none;
   }
 

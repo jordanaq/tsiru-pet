@@ -24,7 +24,15 @@
     <meta name="twitter:card" content="summary_large_image" />
   </head>
   <body>
-    <main class="page">{% block content %}{% endblock %}</main>
+    <main class="page">
+      {# Site navigation — internal pages from config.extra.nav. Every page
+         inherits it, so adding a page is one config entry, not an edit here. #}
+      {% set here = current_url | default(value="") | replace(from=config.base_url, to="") %}
+      <nav class="nav">
+        {% for item in config.extra.nav %}<a href="{{ item.url }}"{% if here == item.url %} aria-current="page"{% endif %}>{{ item.label }}</a>{% endfor %}
+      </nav>
+      {% block content %}{% endblock %}
+    </main>
     <footer class="footer">
       <span>{% block footer %}{{ config.title }} · {{ config.extra.tagline }}{% endblock %}</span>
     </footer>

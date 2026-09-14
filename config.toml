@@ -9,14 +9,18 @@ hard_link_static = false
 
 [extra]
 tagline = "Software Engineer · Programming Languages · Animal Rights Advocate"
-# Public contact / profile links shown in the header.
-# Edit these freely.
-[[extra.links]]
+
+# Site navigation — INTERNAL pages, rendered in the top nav on every page.
+# Adding a page is one entry here; it appears site-wide automatically.
+[[extra.nav]]
 label = "Résumé"
 url = "/resume/"
-[[extra.links]]
+[[extra.nav]]
 label = "Now"
 url = "/now/"
+
+# Identity and contact — EXTERNAL profiles, rendered as pills in the hero.
+# Keep site pages out of this list; they belong in extra.nav above.
 [[extra.links]]
 label = "GitHub"
 url = "https://github.com/jordanaq"

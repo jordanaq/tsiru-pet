@@ -11,7 +11,7 @@
   <a href="https://github.com/jordanaq" rel="me">github.com/jordanaq</a> ·
   <a href="https://linkedin.com/in/jordanaq" rel="me">linkedin.com/in/jordanaq</a>{% endblock %}
 
-{% block actions %}<a href="{{ config.base_url }}">← Home</a><button type="button" class="print-btn" onclick="window.print()">Download PDF</button>{% endblock %}
+{% block actions %}<a href="#" onclick="window.print(); return false;">Download PDF</a>{% endblock %}
 
 {% block body %}
 {% set r = load_data(path="data/resume.toml") %}

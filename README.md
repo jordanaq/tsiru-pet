@@ -44,6 +44,14 @@ So:
   slots they fill, so they cannot drift apart.
 - **Listy content is data, not markup.** Add a `data/*.toml` file and render it
   through `_card.html` / `_section.html` rather than hand-writing elements.
+- **Site pages go in `extra.nav`; everything else in `extra.links`.** `nav` is
+  the internal top nav rendered on every page (`Résumé`, `Now` — add a page,
+  it appears site-wide). `links` is the hero's identity/contact pills
+  (GitHub, LinkedIn, Email, Links). A `mailto:` or an external profile in
+  `nav`, or an internal page in `links`, is the tell that they were mixed up.
+- **Interactive pills are anchors, not `<button>`s.** Chrome ignores
+  `line-height` on form controls, so a button renders a couple of pixels
+  shorter than an anchor pill and shifts the hero's centred avatar.
 
 ## The gate
 

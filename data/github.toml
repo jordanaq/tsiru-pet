@@ -3,56 +3,70 @@
 
 [[repo]]
 name = "tsiru-pet"
-description = ""
+description = "Build for my personal page."
 url = "https://github.com/jordanaq/tsiru-pet"
 language = "CSS"
 stars = 0
 
 [[repo]]
+name = "zxcalc-demo"
+description = "Demo of ZXCalc capabilities on various circuits."
+url = "https://github.com/jordanaq/zxcalc-demo"
+language = "Python"
+stars = 0
+
+[[repo]]
+name = "texlive-nix"
+description = "Nix Flake Packaging TeX Live."
+url = "https://github.com/jordanaq/texlive-nix"
+language = "Nix"
+stars = 0
+
+[[repo]]
 name = ".dotfiles"
-description = ""
+description = "My NixOS dotfiles. Includes versions for desktop, WSL, and a server."
 url = "https://github.com/jordanaq/.dotfiles"
 language = "Nix"
 stars = 1
 
 [[repo]]
-name = "scheduler-miniproject"
-description = ""
-url = "https://github.com/jordanaq/scheduler-miniproject"
-language = ""
-stars = 0
-
-[[repo]]
 name = "python-scheduler-miniproject"
-description = ""
+description = "Python version of the scheduler miniproject."
 url = "https://github.com/jordanaq/python-scheduler-miniproject"
 language = "Python"
 stars = 0
 
 [[repo]]
 name = "rust-scheduler-miniproject"
-description = ""
+description = "Rust version of the scheduler miniproject."
 url = "https://github.com/jordanaq/rust-scheduler-miniproject"
 language = "Rust"
 stars = 0
 
 [[repo]]
 name = "cpp-scheduler-miniproject"
-description = ""
+description = "C++ version of the scheduler miniproject"
 url = "https://github.com/jordanaq/cpp-scheduler-miniproject"
 language = "C++"
 stars = 0
 
 [[repo]]
 name = "c-scheduler-miniproject"
-description = ""
+description = "C version of the scheduler miniproject."
 url = "https://github.com/jordanaq/c-scheduler-miniproject"
 language = "C"
 stars = 0
 
 [[repo]]
+name = "scheduler-miniproject"
+description = "Project comparing the implementation of a task schedular in different languages."
+url = "https://github.com/jordanaq/scheduler-miniproject"
+language = ""
+stars = 0
+
+[[repo]]
 name = "essaying"
-description = ""
+description = "AI-based learning assistant. Generates essay prompts and grades responses."
 url = "https://github.com/jordanaq/essaying"
 language = "Haskell"
 stars = 0
@@ -84,20 +98,6 @@ description = ""
 url = "https://github.com/jordanaq/MLton-Equality-Saturation"
 language = ""
 stars = 1
-
-[[repo]]
-name = "texlive-nix"
-description = ""
-url = "https://github.com/jordanaq/texlive-nix"
-language = "Nix"
-stars = 0
-
-[[repo]]
-name = "zxcalc-demo"
-description = ""
-url = "https://github.com/jordanaq/zxcalc-demo"
-language = "Python"
-stars = 0
 
 [[repo]]
 name = "jordanaq.github.io"

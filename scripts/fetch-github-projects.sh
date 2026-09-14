@@ -32,10 +32,14 @@ command -v jq >/dev/null || { echo "error: jq not found" >&2; exit 1; }
 tmp="$(mktemp)"
 trap 'rm -f "${tmp}"' EXIT
 
+# Ordering: most recent commit first. The API's sort=updated uses updated_at,
+# which changes when repo *metadata* is edited (e.g. a description tweak), so it
+# reorders the section for non-code reasons. pushed_at tracks the last push, so
+# we ask for sort=pushed and then sort explicitly on pushed_at to be sure.
 curl -fsSL \
   -H "Accept: application/vnd.github+json" \
   -H "User-Agent: tsiru-pet-site" \
-  "https://api.github.com/users/${user}/repos?per_page=100&sort=updated" \
+  "https://api.github.com/users/${user}/repos?per_page=100&sort=pushed" \
   > "${tmp}"
 
 {
@@ -43,7 +47,8 @@ curl -fsSL \
   echo "# Source: https://api.github.com/users/${user}/repos"
   echo
   jq -r '
-    .[]
+    sort_by([-((.pushed_at // "1970-01-01T00:00:00Z") | fromdateiso8601), .name])
+    | .[]
     | select(.fork | not)
     | select(.archived | not)
     | "[[repo]]",

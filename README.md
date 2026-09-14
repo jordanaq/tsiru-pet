@@ -91,6 +91,11 @@ make og          # re-render static/og.png from og/card.html
 Both write committed artifacts. Re-run them only when their inputs change, and
 commit the result — the Nix build never touches the network.
 
+The GitHub section is ordered by **most recent commit first** (`pushed_at`, with
+the repo name as a tiebreak). It does not use `updated_at`: that changes when you
+edit repo *metadata* such as a description, which would reorder the section for
+non-code reasons.
+
 `static/resume.pdf` is the phone-free export of the résumé (the one-page Word
 document). The `/resume/` page carries the same content as HTML for search and
 ATS; the PDF is what the *Download PDF* pill serves. They are **not** generated

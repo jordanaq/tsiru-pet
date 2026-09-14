@@ -26,10 +26,11 @@
   <body>
     <main class="page">
       {# Site navigation — internal pages from config.extra.nav. Every page
-         inherits it, so adding a page is one config entry, not an edit here. #}
-      {% set here = current_url | default(value="") | replace(from=config.base_url, to="") %}
+         inherits it, so adding a page is one config entry, not an edit here.
+         current_path is the documented way to know where we are (the 404
+         template is the one template that does not get it). #}
       <nav class="nav">
-        {% for item in config.extra.nav %}<a href="{{ item.url }}"{% if here == item.url %} aria-current="page"{% endif %}>{{ item.label }}</a>{% endfor %}
+        {% for item in config.extra.nav %}<a href="{{ item.url }}"{% if current_path | default(value="") == item.url %} aria-current="page"{% endif %}>{{ item.label }}</a>{% endfor %}
       </nav>
       {% block content %}{% endblock %}
     </main>

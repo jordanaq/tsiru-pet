@@ -86,25 +86,37 @@ body {
 
 /* ---------- nav ---------- */
 
+/* Echoes the h2 eyebrow treatment (uppercase, tracked, dim) so the nav reads
+   as chrome rather than content. The current page is carried by an accent
+   underline; hover previews it. */
 .nav {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-4);
+  gap: var(--space-5);
   margin-bottom: var(--space-6);
-  font-size: var(--text-base);
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
 }
 
 .nav a {
   color: var(--fg-dim);
   text-decoration: none;
+  padding-bottom: var(--space-1);
+  border-bottom: 2px solid transparent;
+  transition:
+    color var(--ease),
+    border-color var(--ease);
 }
 
 .nav a:hover {
   color: var(--accent);
+  border-bottom-color: var(--accent-dim);
 }
 
 .nav a[aria-current="page"] {
   color: var(--fg);
+  border-bottom-color: var(--accent);
 }
 
 /* ---------- hero ---------- */

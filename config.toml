@@ -46,6 +46,22 @@ url = "/resume/"
 # The GitHub project auto-listing.
 [extra.github]
 username = "jordanaq"
-# Repos listed here are hidden from the auto-generated section
-# (e.g. forks of other people's work, throwaway experiments).
-hidden = []
+# Repos listed here are hidden from the auto-generated section.
+#   - forks of other people's work (never list these as your own projects)
+#   - throwaway experiments, practice repos, and superseded sites
+#   - projects better presented as a curated Projects card than as loose repos
+hidden = [
+  # forks — other people's work
+  "mlton",
+  "BSNet",
+  # throwaway / historical
+  "codeWars",
+  "cpsc146Final",
+  "jordanaq.github.io",
+  # MLton Equality Saturation — four repos for one project; belongs in a curated
+  # Projects card (code + demo + paper), not as four loose auto-listed entries.
+  "MLton-Equality-Saturation",
+  "MLton-Equality-Saturation-Code",
+  "MLton-Equality-Saturation-Egg-Demo",
+  "MLton-Equality-Saturation-Papers",
+]

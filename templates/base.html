@@ -25,17 +25,15 @@
   </head>
   <body>
     <main class="page">
-      {# Site navigation — internal pages from config.extra.nav. Every page
-         inherits it, so adding a page is one config entry, not an edit here.
-         current_path is the documented way to know where we are (the 404
-         template is the one template that does not get it). #}
-      <nav class="nav">
-        {% for item in config.extra.nav %}<a href="{{ item.url }}"{% if current_path | default(value="") == item.url %} aria-current="page"{% endif %}>{{ item.label }}</a>{% endfor %}
-      </nav>
       {% block content %}{% endblock %}
     </main>
     <footer class="footer">
       <span>{% block footer %}{{ config.title }} · {{ config.extra.tagline }}{% endblock %}</span>
+      {# Fallback navigation on every page. It never competes with the hero,
+         and it stays off the résumé's printed output (.footer is hidden). #}
+      <nav class="footer-nav">
+        {% for item in config.extra.nav %}<a href="{{ item.url }}">{{ item.label }}</a>{% endfor %}
+      </nav>
     </footer>
   </body>
 </html>

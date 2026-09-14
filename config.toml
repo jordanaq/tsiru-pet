@@ -10,14 +10,16 @@ hard_link_static = false
 [extra]
 tagline = "Software Engineer · Programming Languages · Animal Rights Advocate"
 
-# Site navigation — INTERNAL pages, rendered in the top nav on every page.
-# Adding a page is one entry here; it appears site-wide automatically.
+# Site pages — INTERNAL. One source of truth: this list drives the home page
+# index and the footer links. Add a page here and it appears in both.
 [[extra.nav]]
 label = "Résumé"
 url = "/resume/"
+description = "Experience, education, skills, and publications."
 [[extra.nav]]
 label = "Now"
 url = "/now/"
+description = "What I'm working on this month."
 
 # Identity and contact — EXTERNAL profiles, rendered as pills in the hero.
 # Keep site pages out of this list; they belong in extra.nav above.

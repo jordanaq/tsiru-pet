@@ -12,6 +12,20 @@
   {{ section.content | safe }}
 </section>
 
+{# Site index — a table of contents after the preface. Source: config.extra.nav,
+   the same list that feeds the footer links. #}
+<section class="site-index">
+  <h2>On this site</h2>
+  <ul class="index-list">
+    {% for item in config.extra.nav %}
+    <li>
+      <a href="{{ item.url }}">{{ item.label }}</a>
+      <span class="desc">{{ item.description }}</span>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+
 {% set section_title = "Projects" %}
 {% set section_class = "projects" %}
 {% set section_note = "" %}

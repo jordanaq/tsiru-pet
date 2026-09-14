@@ -45,10 +45,15 @@ So:
 - **Listy content is data, not markup.** Add a `data/*.toml` file and render it
   through `_card.html` / `_section.html` rather than hand-writing elements.
 - **Site pages go in `extra.nav`; everything else in `extra.links`.** `nav` is
-  the internal top nav rendered on every page (`Résumé`, `Now` — add a page,
-  it appears site-wide). `links` is the hero's identity/contact pills
-  (GitHub, LinkedIn, Email, Links). A `mailto:` or an external profile in
-  `nav`, or an internal page in `links`, is the tell that they were mixed up.
+  one source of truth for internal pages and drives two things: the index list
+  on the home page (below the bio) and the footer links on every page. `links`
+  is the hero's identity/contact pills (GitHub, LinkedIn, Email, Links). A
+  `mailto:` or an external profile in `nav`, or an internal page in `links`, is
+  the tell that they were mixed up.
+- **There is no top nav bar, deliberately.** Two links do not justify one, and
+  a bare link row above the hero competes with it and reads as chrome. The home
+  page carries an index *after* the bio (a table of contents after the
+  preface); the footer carries the fallback.
 - **Interactive pills are anchors, not `<button>`s.** Chrome ignores
   `line-height` on form controls, so a button renders a couple of pixels
   shorter than an anchor pill and shifts the hero's centred avatar.

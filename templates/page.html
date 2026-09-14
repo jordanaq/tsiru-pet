@@ -31,6 +31,7 @@
   </div>
 </header>
 {# Content pages (e.g. content/now.md, `template = "page.html"`) render their
-   markdown here by default; custom pages override the body block. #}
-{% block body %}{{ page.content | safe }}{% endblock %}
+   markdown here by default; custom pages override the body block. The .prose
+   wrapper is what gives plain markdown the site's typography. #}
+{% block body %}<div class="prose">{{ page.content | safe }}</div>{% endblock %}
 {% endblock %}

@@ -1,12 +1,19 @@
 +++
 title = "Now"
-description = "What Jordan Quinn is working on right now."
+description = "What Jordan Quinn is working on right now — a software engineering job search, the essaying AI project, and research on bias in animal welfare."
 template = "page.html"
 +++
 
-<!-- TODO(Tsiru): replace this placeholder with the "now" text. Keep it short,
-     first-person, current, and dated — see the points in chat. -->
+_Last updated: September 2026_
 
-_Last updated: <!-- date -->_
+## Job Search
 
-This is where I'll say what I'm focused on right now.
+I'm looking for a software engineering position. Particularly focused on compilers or PL to utilize my Master's, or robotics to utilize my experience at NASA JPL.
+
+## [Essaying Project](https://github.com/jordanaq/essaying)
+
+An AI project to assist autodidacts with topical and directed essay projects. It directs LLMs to sources of truth and documents for essay direction/dimensions and generates prompts for learners to write towards. It also generates grading sheets and provides content feedback.
+
+## Essay on Bias in Animal Welfare Research
+
+An examination of various philosophy of science, ethics, and journalistic publications that cover researcher bias when looking into animal welfare.

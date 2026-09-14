@@ -11,7 +11,10 @@
   <a href="https://github.com/jordanaq" rel="me">github.com/jordanaq</a> ·
   <a href="https://linkedin.com/in/jordanaq" rel="me">linkedin.com/in/jordanaq</a>{% endblock %}
 
-{% block actions %}<a href="#" onclick="window.print(); return false;">Download PDF</a>{% endblock %}
+{# Serves the real one-page PDF (static/resume.pdf) rather than generating one
+   from this page. Kept in step with data/resume.toml by hand — if you edit the
+   résumé content, re-export the PDF too. #}
+{% block actions %}<a href="{{ get_url(path='resume.pdf') }}" download>Download PDF</a>{% endblock %}
 
 {% block body %}
 {% set r = load_data(path="data/resume.toml") %}

@@ -14,7 +14,7 @@ make serve    # build, then http://127.0.0.1:8791
 | `content/` | pages. `_index.md` is the home page; `resume.md` is `/resume/` |
 | `data/` | content that is a *list* — `projects.toml`, `resume.toml`, `github.toml` |
 | `templates/` | Tera templates. `page.html` is the archetype every page extends |
-| `static/` | assets copied verbatim — `style.css`, `avatar.jpg`, favicons, `og.png` |
+| `static/` | assets copied verbatim — `style.css`, `avatar.jpg`, favicons, `og.png`, `resume.pdf` |
 | `og/card.html` | source for the social card; not served (rendered by `make og`) |
 | `scripts/` | the guards and generators below |
 
@@ -88,5 +88,10 @@ make og          # re-render static/og.png from og/card.html
 
 Both write committed artifacts. Re-run them only when their inputs change, and
 commit the result — the Nix build never touches the network.
+
+`static/resume.pdf` is the phone-free export of the résumé (the one-page Word
+document). The `/resume/` page carries the same content as HTML for search and
+ATS; the PDF is what the *Download PDF* pill serves. They are **not** generated
+from each other — edit `data/resume.toml` and the PDF source together.
 
 [Zola]: https://www.getzola.org/

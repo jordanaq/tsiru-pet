@@ -36,6 +36,13 @@ url = "mailto:jordanaq@tsiru.pet"
 label = "Links"
 url = "https://links.tsiru.pet/@jordanaq"
 
+# The primary call to action, rendered first in the hero row and marked with
+# the accent pill. Keep it a DOCUMENT (the résumé), not a nav item — site pages
+# belong in extra.nav with the index and footer.
+[extra.cta]
+label = "Résumé"
+url = "/resume/"
+
 # The GitHub project auto-listing.
 [extra.github]
 username = "jordanaq"

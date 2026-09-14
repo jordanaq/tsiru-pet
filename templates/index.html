@@ -1,9 +1,7 @@
 {% extends "page.html" %}
 
-{% block subtitle %}{{ config.extra.tagline }}{% endblock %}
-
-{% block actions %}{% for link in config.extra.links %}<a href="{{ link.url }}" rel="me">{{ link.label }}</a>{% endfor %}{% endblock %}
-
+{# subtitle and actions come from page.html's defaults — tagline and the CTA +
+   identity pills. Overriding them here would opt out of the shared header. #}
 {% block body %}
 {% set manual = load_data(path="data/projects.toml") %}
 {% set gh = load_data(path="data/github.toml") %}
@@ -19,8 +17,10 @@
   <ul class="index-list">
     {% for item in config.extra.nav %}
     <li>
-      <a href="{{ item.url }}">{{ item.label }}</a>
-      <span class="desc">{{ item.description }}</span>
+      <a href="{{ item.url }}">
+        <span class="label">{{ item.label }}</span>
+        <span class="desc">{{ item.description }}</span>
+      </a>
     </li>
     {% endfor %}
   </ul>

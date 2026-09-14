@@ -57,6 +57,9 @@ So:
 - **Interactive pills are anchors, not `<button>`s.** Chrome ignores
   `line-height` on form controls, so a button renders a couple of pixels
   shorter than an anchor pill and shifts the hero's centred avatar.
+- **The primary action is `extra.cta`, not an `extra.links` entry.** It renders
+  first in the hero row with the accent pill. It is for a *document* (the
+  résumé); site pages go in `extra.nav` so they land in the index and footer.
 
 ## The gate
 

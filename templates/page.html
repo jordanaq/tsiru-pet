@@ -23,7 +23,7 @@
   <div class="hero-text">
     <h1>{{ config.title }}</h1>
     <div class="hero-subtitle">{% block subtitle %}{{ config.extra.tagline }}{% endblock %}</div>
-    <nav class="links">{% block actions %}{% for link in config.extra.links %}<a href="{{ link.url }}" rel="me">{{ link.label }}</a>{% endfor %}{% endblock %}</nav>
+    <nav class="links">{% block actions %}{% if config.extra.cta | default(value=false) %}<a class="cta" href="{{ config.extra.cta.url }}">{{ config.extra.cta.label }}</a>{% endif %}{% for link in config.extra.links %}<a href="{{ link.url }}" rel="me">{{ link.label }}</a>{% endfor %}{% endblock %}</nav>
   </div>
 </header>
 {# Content pages (e.g. content/now.md, `template = "page.html"`) render their

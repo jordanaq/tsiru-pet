@@ -49,6 +49,30 @@
 
           meta = {
             description = "Static build of the tsiru.pet personal site";
+            homepage = "https://home.tsiru.pet";
+          };
+        };
+
+        # The apex (tsiru.pet) placeholder — a bare, non-Zola static page
+        # served in place of the site, which now lives at home.tsiru.pet.
+        # No zola involvement: just copies landing/ into the store.
+        landing = pkgs.stdenvNoCC.mkDerivation {
+          pname = "tsiru-pet-landing";
+          version = "0.1.0";
+
+          src = ./landing;
+
+          dontConfigure = true;
+
+          installPhase = ''
+            runHook preInstall
+            mkdir -p $out
+            cp -r $src/. $out/
+            runHook postInstall
+          '';
+
+          meta = {
+            description = "Bare placeholder page for the apex tsiru.pet";
             homepage = "https://tsiru.pet";
           };
         };
@@ -69,6 +93,7 @@
       # or (the trap that bit us) an uncommitted asset fails the check.
       checks = forAllSystems (pkgs: {
         default = self.packages.${pkgs.stdenv.hostPlatform.system}.default;
+        landing = self.packages.${pkgs.stdenv.hostPlatform.system}.landing;
       });
     };
 }

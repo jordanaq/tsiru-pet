@@ -1,4 +1,7 @@
-base_url = "https://tsiru.pet"
+# The full site now lives at home.tsiru.pet; the apex tsiru.pet is a bare
+# placeholder (landing/). base_url drives og:url/canonical/sitemap and the
+# absolute og:image URL, so it must point at the real home.
+base_url = "https://home.tsiru.pet"
 title = "Jordan Quinn"
 description = "Jordan Quinn — software engineer working on compilers and programming languages; animal rights advocate."
 default_language = "en"

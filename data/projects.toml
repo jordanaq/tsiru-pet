@@ -4,15 +4,7 @@
 # scaffolding; delete the line once you've written the real entry.
 
 [[project]]
-title = "PLACEHOLDER — Example Project"
-description = "One or two sentences on what this is, why it exists, and what's interesting about it technically."
-url = "https://github.com/jordanaq"
-tags = ["rust", "compilers"]
-placeholder = true
-
-[[project]]
-title = "PLACEHOLDER — Second Project"
-description = "Another project slot. Delete this block if you only need one."
-url = "https://example.com"
-tags = ["functional-programming", "types"]
-placeholder = true
+title = "Essaying"
+description = "A local-first essay platform for autodidacts: it turns a topic into an assignment, builds a rubric for it, then grades the saved draft against that rubric. Everything is plain Markdown and JSON on disk — the app is a front end to your own files."
+url = "https://github.com/jordanaq/essaying"
+tags = ["haskell", "svelte", "local-first"]

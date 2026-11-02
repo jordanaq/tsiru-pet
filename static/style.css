@@ -363,6 +363,20 @@ h2 a:hover {
   gap: var(--space-4);
 }
 
+/* A curated grid where every card is a headline entry: one card fills the row,
+   two split it, and each gets more breathing room than a GitHub tile. */
+.grid.featured {
+  grid-template-columns: repeat(auto-fill, minmax(min(calc(var(--card-min) * 2), 100%), 1fr));
+}
+
+.grid.featured .card {
+  padding: var(--space-5);
+}
+
+.grid.featured .card p {
+  max-width: 68ch;
+}
+
 .card {
   background: var(--bg-card);
   border: 1px solid var(--border);

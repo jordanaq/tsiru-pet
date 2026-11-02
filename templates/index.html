@@ -30,7 +30,7 @@
 {% set section_class = "projects" %}
 {% set section_note = "" %}
 {% set section_body %}
-<div class="grid">
+<div class="grid featured">
   {% for p in manual.project %}
   {% set card_title = p.title %}
   {% set card_url = p.url | default(value="") %}

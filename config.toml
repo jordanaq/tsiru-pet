@@ -61,6 +61,8 @@ hidden = [
   "codeWars",
   "cpsc146Final",
   "jordanaq.github.io",
+  # curated Projects cards — the featured card is the canonical listing
+  "essaying",
   # MLton Equality Saturation — four repos for one project; belongs in a curated
   # Projects card (code + demo + paper), not as four loose auto-listed entries.
   "MLton-Equality-Saturation",
